@@ -107,3 +107,7 @@ This project uses a **Skip List** for the MemTable due to its balance between si
 1. Clone the repository.
 2. Compile the code using `javac`.
 3. Run the `MemTable` class.
+
+## References:
+1. https://news.ycombinator.com/item?id=44432322
+
