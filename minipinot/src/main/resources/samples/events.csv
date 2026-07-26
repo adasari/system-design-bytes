@@ -1,0 +1,11 @@
+country,browser,device,clicks,revenue,ts
+US,Chrome,Desktop,3,1.50,1000
+US,Safari,Mobile,1,0.20,1001
+IN,Chrome,Mobile,5,2.75,1002
+IN,Firefox,Desktop,2,0.90,1003
+US,Chrome,Mobile,4,1.10,1004
+DE,Chrome,Desktop,7,3.40,1005
+IN,Safari,Mobile,1,0.15,1006
+US,Firefox,Desktop,2,0.80,1007
+DE,Safari,Mobile,3,1.20,1008
+IN,Chrome,Desktop,6,2.10,1009
