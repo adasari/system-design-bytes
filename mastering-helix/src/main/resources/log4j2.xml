@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+  <Properties>
+    <Property name="LOG_DIR">logs</Property>
+    <Property name="START_TIME">${date:yyyyMMdd-HHmmss}</Property>
+    <Property name="INSTANCE">${sys:app.instance:-default}</Property>
+  </Properties>
+
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout
+          pattern="%d{yyyy-MM-dd HH:mm:ss} %-5p [%t] %c:%L - %m%n"/>
+    </Console>
+    <RollingFile name="AppRollingFile"
+                 fileName="${LOG_DIR}/app-${INSTANCE}.log"
+                 filePattern="${LOG_DIR}/archive/app-${INSTANCE}-%d{yyyy-MM-dd}-%i.log.gz"
+                 append="true">
+      <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+      <Policies>
+        <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+        <SizeBasedTriggeringPolicy size="10 MB"/>
+      </Policies>
+      <DefaultRolloverStrategy max="30"/>
+    </RollingFile>
+  </Appenders>
+
+  <Loggers>
+    <Logger name="org.apache.helix" level="DEBUG"/>
+    <Logger name="org.apache.zookeeper" level="WARN"/>
+    <Logger name="org.apache.helix.zookeeper.zkclient" level="INFO"/>
+    <Root level="DEBUG">
+      <AppenderRef ref="Console"/>
+      <AppenderRef ref="AppRollingFile"/>
+    </Root>
+  </Loggers>
+</Configuration>
